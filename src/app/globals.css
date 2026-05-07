@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode — warm parchment, gold accents */
+    --background: 38 30% 98%;
+    --foreground: 30 20% 12%;
+
+    --card: 38 25% 96%;
+    --card-foreground: 30 20% 12%;
+
+    --popover: 38 25% 96%;
+    --popover-foreground: 30 20% 12%;
+
+    --primary: 35 80% 42%;
+    --primary-foreground: 38 30% 98%;
+
+    --secondary: 38 20% 90%;
+    --secondary-foreground: 30 20% 20%;
+
+    --muted: 38 15% 92%;
+    --muted-foreground: 30 12% 40%;
+
+    --accent: 35 70% 88%;
+    --accent-foreground: 35 80% 25%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 38 30% 98%;
+
+    --border: 38 15% 88%;
+    --input: 38 15% 88%;
+    --ring: 35 80% 42%;
+
+    --etymology: 280 50% 50%;
+    --history: 200 60% 45%;
+    --customer: 145 60% 38%;
+    --warning: 25 85% 50%;
+    --success: 145 55% 40%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark mode — embers and amber, the strategic-quiet feel */
+    --background: 30 25% 8%;
+    --foreground: 38 15% 92%;
+
+    --card: 30 20% 11%;
+    --card-foreground: 38 15% 92%;
+
+    --popover: 30 20% 11%;
+    --popover-foreground: 38 15% 92%;
+
+    --primary: 35 90% 65%;
+    --primary-foreground: 30 25% 8%;
+
+    --secondary: 30 18% 18%;
+    --secondary-foreground: 38 15% 92%;
+
+    --muted: 30 18% 14%;
+    --muted-foreground: 38 8% 65%;
+
+    --accent: 30 25% 22%;
+    --accent-foreground: 35 90% 75%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 38 15% 92%;
+
+    --border: 30 18% 18%;
+    --input: 30 18% 18%;
+    --ring: 35 90% 65%;
+
+    --etymology: 280 60% 70%;
+    --history: 200 70% 60%;
+    --customer: 145 60% 60%;
+    --warning: 30 85% 60%;
+    --success: 145 50% 55%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'rlig' 1, 'calt' 1, 'kern' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background-color: hsl(var(--primary) / 0.25); color: hsl(var(--foreground)); }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background-color: hsl(var(--muted)); border-radius: 5px; border: 2px solid hsl(var(--background)); }
+}
+
+@layer components {
+  .prose-lesson { @apply font-serif text-[1.125rem] leading-[1.75]; max-width: 70ch; color: hsl(var(--foreground)); }
+  .prose-lesson p { @apply mb-5; }
+  .prose-lesson h1 { @apply font-sans text-3xl font-bold tracking-tight mt-8 mb-4; }
+  .prose-lesson h2 { @apply font-sans text-2xl font-semibold tracking-tight mt-10 mb-3; }
+  .prose-lesson h3 { @apply font-sans text-xl font-semibold tracking-tight mt-8 mb-2; }
+  .prose-lesson strong { @apply font-semibold text-foreground; }
+  .prose-lesson em { @apply italic; color: hsl(var(--muted-foreground)); }
+  .prose-lesson code { @apply font-mono text-[0.95em] px-1.5 py-0.5 rounded; background-color: hsl(var(--muted)); color: hsl(var(--primary)); }
+  .prose-lesson pre { @apply font-mono text-sm rounded-md p-4 my-4 overflow-x-auto; background-color: hsl(var(--card)); border: 1px solid hsl(var(--border)); }
+  .prose-lesson pre code { @apply bg-transparent text-foreground p-0; }
+  .prose-lesson blockquote { @apply pl-6 italic my-4; border-left: 3px solid hsl(var(--accent)); color: hsl(var(--muted-foreground)); }
+  .prose-lesson ul { @apply pl-6 mb-5 list-disc; }
+  .prose-lesson ol { @apply pl-6 mb-5 list-decimal; }
+  .prose-lesson li { @apply mb-2; }
+  .prose-lesson a { @apply underline decoration-primary/40 underline-offset-4 hover:decoration-primary; color: hsl(var(--primary)); }
+  .etymology-term { @apply cursor-help underline decoration-dotted underline-offset-4; text-decoration-color: hsl(var(--etymology) / 0.6); }
+}
